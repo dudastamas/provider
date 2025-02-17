@@ -4,13 +4,13 @@ import { UserContext } from "./UserContextProvider.jsx";
 
 export default function Form() {
 
-  const {name, setName, setSubmittedName} = useContext(UserContext);
+  const {name, setName, setSubmittedName, setIsSubmitted} = useContext(UserContext);
 
 
   function handleSubmit(e){
     e.preventDefault();
     setSubmittedName(name);
-    localStorage.setItem('userName', name);
+    setIsSubmitted(true);
   }
   return (
     <form className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md" onSubmit={handleSubmit}>
